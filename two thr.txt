@@ -1,0 +1,30 @@
+/*
+	 two[1] = -1;
+	 one[1] = -1;
+	 printf("\n****** 2단계 :: two배열과 thr배열 비교 ******\n");
+	 if (is_one_smaller == 1)
+	 {
+	 while (thr[0]<100)
+	 {
+	 ret = balance(two, thr); balance_call_cnt += 1;
+	 //   printf("AAA\n");
+	 if (ret == EQUAL && thr[0] != okay_idx1)
+	 {
+	 okay_idx2 = thr[0]; printf("one : 5      two: 7      three: 7\n"); break;
+	 }
+	 thr[0] += 1;
+	 }
+	 }
+	 else
+	 {
+	 while (thr[0]<100)
+	 {
+	 ret = balance(two, thr); balance_call_cnt += 1;
+	 //   printf("AAA\n");
+	 if (ret == SMALL && thr[0] != okay_idx1)
+	 {
+	 okay_idx2 = thr[0]; printf("one : 7      two: 5      three: 7\n");  break;
+	 }
+	 thr[0] += 1;
+	 }
+	 }*/

@@ -1,0 +1,12 @@
+c언어
+자료구조
+WinAPI
+소켓프로그래밍 ( 빅엔디안, 리틀엔디안)
+
+분야를 택함.
+
+C# == RAD TOOL == Rapid Application DevelopMent Tool
+int a;
+c++ 참조자, void set(int &num)
+	{
+	}

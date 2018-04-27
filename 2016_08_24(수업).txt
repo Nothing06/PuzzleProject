@@ -1,0 +1,24 @@
+FILE * fp = fopen("파일이름","rt"); "wt" "rb" "wb";
+int a=20;
+fwrite((void*)&a, sizeof(int), 1, fP);
+// 0001 0100
+ret = fread((void*)&a, sizeof(int), 10, fp);
+
+FILE * fptr;
+while(fgets(str, 100, fp))
+{
+	str[strlen(str)-1]=0; 
+}
+fgets(str, 100, stdin);
+fputs(str, stdout)
+텍스트 모드  \n => 
+바이너리 모드 \r\n => \r\n // \n => \n
+
+fclose();
+
+windows: \n => \r\n
+linux : \n => \n
+mac : \n => \r
+SEEK_SET
+SEEK_CUR
+fseek(fp, -1, SEEK_CUR);

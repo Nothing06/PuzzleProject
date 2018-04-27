@@ -1,0 +1,20 @@
+int c=0;
+while(!is_Dead("yanghoon"))
+{
+	printf("Believe Jesus Christ.\n");
+	while(1)
+	{
+		printf("Press Y or N : ");
+		scanf("%c",&c);
+		getchar();
+		if(c=='Y' || c=='y' )
+			break;
+	}
+}
+
+1. atof() 구현해보기.(인자로 문자열을 전달하면, 그 문자열내용에 맞는 double형 실수를 반환하는 함수.   만약 실수나 정수 형태가 아닐 경우는 NULL 반환.)
+2. numberComma() 구현해보기.( ex. numberComma("120200"); 일 경우,  120,200..(돈 계산할때 써주는 컴마(,)(3번 숫자,1번 컴마, ...)를 추가해주는 함수.)
+
+ ex. numberComma("100") => 100
+     numberComma("100001000) => 100,001,000
+     numberComma("12000") => 12,000 

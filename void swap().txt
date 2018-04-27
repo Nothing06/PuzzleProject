@@ -1,0 +1,17 @@
+void Swap(void *a,void *b,size_t len)
+
+{
+
+     void *t;
+
+     t=malloc(len);
+
+     memcpy(t,a,len);
+
+     memcpy(a,b,len);
+
+     memcpy(b,t,len);
+
+     free(t);
+
+}

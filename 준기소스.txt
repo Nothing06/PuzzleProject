@@ -1,0 +1,227 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int hexdec(int de)
+{
+	printf ("10진수 [%d]은(는) 16진수로 [%x] 입니다.", de, de); // %x = 16진
+	return 1;
+}
+
+int ninenine(int a, int b)
+{
+	//int val1=0, val2=0;
+	int sw=0, d=1;
+	if (a > b)
+	{sw = a; a = b; b = sw;}
+	
+	for(a; a<=b; a++)
+	{
+		for(d; d<10; d++) // int d로 바로 써도 되는데 c99인가 c11 아니라고 오류 떠서.. ㅡㅡ 
+		{
+			printf("%d * %d = %d\n", a, d, a*d);
+		}
+		printf("\n");
+		d = 1;
+	}
+	
+	return 2;
+}
+
+int do_gcd(int a, int b)
+{
+	int c = 0, d = 0, bigges = 0;
+	
+	if(a > b)
+	{
+		c = a;
+		a = b;
+		b = c;
+	}
+	
+	for(c=1; c<=a; c++)
+	{
+		if(a%c == 0)
+		{
+			if(b%c == 0)
+			{
+			bigges = c;
+			}
+			else continue;
+		}
+	}
+	return bigges;
+}
+
+int buythings()
+{
+	int money=3500;
+	
+	printf("[메뉴] 크림빵 = 500, 새우깡 = 700, 콜라 = 400\n\n");
+	printf("당신이 가지고 있는 금액 : %d\n\n", money);
+	
+	int cream=500, shrimp=700, coke=400;
+	int creams=0, shrimps=0, cokes=0;
+	int creama=0, shrimpa=0, cokea=0;
+	int left=0, left1=0, left2=0, left3=0;
+	left=money;
+	
+	for (creams = 1; creams <= (left / cream); creams++)
+	{
+		left1 = left;
+		left1 -= (cream * creams);
+		//printf("%d / Cr %d\n", left1, creams);
+		for (shrimps = 1; shrimps <= (left / shrimp); shrimps++)
+		{
+			left2 = left1;
+			left2 -= (shrimp * shrimps);
+			//printf("%d / Sh %d\n", left2, shrimps);
+		
+			for (cokes = 1; cokes <= (left / coke); cokes++)
+			{	
+				left3 = left2;
+				left3 -= (coke * cokes);
+				//printf("%d / Co %d\n", left3, cokes);
+				
+				if(left3 == 0)
+				{
+					printf("크림빵 %d개, 새우깡 %d개, 콜라 %d개 \n", creams, shrimps, cokes);
+				}
+					
+			}	
+		}
+	}
+	printf("다음과 같이 구입할 수 있습니다.");
+
+	return 0;
+}
+
+int pncal(int numb)
+{
+	int init=1, count=1, amount=0;
+	
+	for(init=2; amount<numb; init++)
+	{
+		for(count=2; count<=init; count++)
+		{
+			if(init%count == 0)
+			{
+				if(init==count)
+				{
+					init;
+					printf(" %d ", init);
+					amount++;
+				}
+				else break;
+			}
+		}
+	}
+	return 5;
+}
+
+int sec3600(int num1)
+{
+	int nuke=0, nike=0;
+	printf("%d 초는 \n", num1);
+	nuke=num1;
+
+	nike = nuke/3600;
+	nuke = nuke%3600;
+	printf("%d 시간 ", nike);
+	nike = nuke/60;
+	nuke = nuke%60;
+	printf("%d 분 %d 초 입니다.", nike, nuke);
+	
+	return 6;
+}
+
+int twoex(int num)
+{
+	int ini=0;
+	for(ini=0; num/2>=1; ini++)
+	{
+		num/=2;
+	}
+	
+	return ini;
+}
+
+int twoex_2(int num)
+{
+	if(num==0) return 1;
+	if(num==1) return 2;
+	return 2 * twoex_2(num-1);
+}
+
+int main() {
+	int num1 = 0, num2 = 0;
+	int menunum = 0;
+	
+	printf("문제 번호를 입력해주세요. (1~8) (0번 입력 시 종료)");
+	menunumber:
+	printf("\n몇 번 프로그램을 보시겠습니까?");
+	scanf("%d", &menunum);
+	
+	switch(menunum)
+	{
+	case 1:
+		printf ("[문1] 10 -> 16진수 변환 프로그램입니다.\n");
+		printf ("숫자를 입력하세요. ");
+		scanf ("%d", &num1);
+		hexdec(num1);
+		break;
+	case 2:
+		printf ("[문2] 구구단 프로그램입니다.\n");
+		printf ("2개의 숫자를 입력하면 단이 출력됩니다.\n(ex) 2와 5를 입력하면 2단부터 5단까지. ");
+		printf ("숫자를 2개 입력하세요. 크기 순서는 상관없습니다. ");
+		scanf ("%d %d", &num1, &num2);
+		ninenine(num1, num2);
+		break;
+	case 3:
+		printf ("[문3] 최대공약수 프로그램입니다.\n");
+		printf ("숫자를 2개 입력하세요. 크기 순서는 상관없습니다. ");
+		scanf ("%d %d", &num1, &num2);
+		printf("%d와 %d의 최대공약수는 [ %d ] 입니다.", num1, num2, dogcd(num1, num2));
+		break;
+	case 4:
+		printf ("[문4]구매 선택지 프로그램입니다.\n");
+		buythings();
+		break;
+	case 5:
+		printf ("[문5]소수 출력 프로그램입니다.\n");
+		printf ("몇 개를 출력할까요? ");
+		scanf ("%d", &num1);
+		pncal(num1);
+		break;
+	case 6:
+		printf ("[문6] 시분초 계산 프로그램입니다.]\n");
+		printf ("몇 초를 변환할까요?");
+		scanf ("%d", &num1);
+		sec3600(num1);
+		break;
+	case 7:
+		printf ("[문7] 2^k <= n 에 해당하는 k의 값을 출력해주는 프로그램입니다.\n");
+		printf ("숫자를 입력하세요. ");
+		scanf ("%d", &num1);
+		printf ("%d는 2의 [%d]승보다 크거나 같습니다.", num1, twoex(num1));
+		break;
+	case 8:
+		printf ("[문8] 2의 n승을 구해주는 프로그램입니다. \n");
+		printf ("2를 몇 승 할까요? (너무 큰 숫자는 삼가 부탁)");
+		scanf ("%d", &num1);
+		printf ("2의 %d승은 [%d] 입니다.", num1, twoex_2(num1));
+		break;
+	case 0:
+		printf("BYE BYE.");
+		return 0;
+		break;
+	default:
+		printf("오류입니다. 0  또는  1부터 8 사이의 숫자만 입력해 주세요.");
+		goto menunumber;
+		break;
+	}
+	
+	printf (" 프로그램이 종료됩니다.");
+	goto menunumber;
+}
